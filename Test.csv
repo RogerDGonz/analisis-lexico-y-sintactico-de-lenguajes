@@ -1,0 +1,21 @@
+Method|URL|Params|Body|IP
+
+GET|https://example.com/search|query=SELECT id FROM usuarios;| |192.168.1.30
+
+GET|https://example.com/search|query=SELECT id FROM usuarios WHERE id BETWEEN 100 AND 200;| |192.168.1.30
+GET|https://example.com/search|marcos=DELETE FROM usuarios WHERE id BETWEEN 100 AND 200 AND id <> 50;| |192.168.1.30
+GET|https://example.com/search|belid=SELECT id FROM usuarios WHERE id IS NOT NULL AND id <> 50 ORDER BY id ASC;| |192.168.1.30
+GET|https://example.com/search|query=SELECT id FROM usuarios WHERE id >= 50 OR id = 10 LIMIT 3;| |192.168.1.30
+GET|https://example.com/search|query=SELECT id FROM usuarios WHERE id=10 AND id <> 50 OR nombre LIKE 'juan%'  OFFSET 3 LIMIT 2;| |192.168.1.30
+GET|https://example.com/search|query=SELECT id, nombre FROM usuarios GROUP BY nombre LIMIT 4 OFFSET 3;| |192.168.1.30
+GET|https://example.com/search|query=SELECT id, nombre FROM usuarios GROUP BY nombre ORDER BY id DESC LIMIT 4 OFFSET 3;| |192.168.1.30
+GET|https://example.com/search|query=SELECT id, nombre FROM usuarios GROUP BY id, contrasena LIMIT 4 OFFSET 3;| |192.168.1.30
+POST|https://example.com/register||username=INSERT INTO usuarios (id, nombre, contrasena) VALUES (12, 'juan', '1234');|192.168.1.40
+PUT|https://example.com/modify||name=UPDATE usuarios SET nombre='juan';|192.168.1.50
+PUT|https://example.com/modify||name=UPDATE usuarios SET nombre='juan' WHERE nombre LIKE '%a%' OR id <> 2; SELECT id FROM usuarios;| |192.168.1.60
+PUT|https://example.com/modify||name=UPDATE usuarios SET nombre = 'juan' WHERE nombre LIKE '%a%' OR id <> 2; INSERT INTO usuarios (id, nombre, contrasena) VALUES (12, 'juan', '1234');|192.168.1.60
+POST|https://example.com/register||username=INSERT INTO usuarios (id, nombre, contrasena) VALUES (12, 'juan', '1234'); UPDATE usuarios SET nombre = 'juan';|192.168.1.60
+GET|https://example.com/search|query=SELECT id FROM usuarios WHERE id >= 50 OR id = 10 LIMIT 3; UPDATE usuarios SET nombre = 'juan';|192.168.1.60
+GET|https://example.com/search|query=SELECT id FROM usuarios WHERE id BETWEEN 100 AND 200 AND id <> 50;INSERT INTO usuarios (id, nombre, contrasena) VALUES (23, 'javier', 'hola123');|192.168.1.60
+GET|https://example.com/search|query=SELECT id FROM usuarios WHERE id BETWEEN 100 AND 200 AND id <> 50; INSERT INTO usuarios (id, nombre, contrasena) VALUES (23, 'javier', 'hola123'); SELECT id, nombre FROM usuarios GROUP BY nombre ORDER BY id DESC LIMIT 4 OFFSET 3;| |192.168.1.60
+POST|https://example.com/modify||username=UPDATE usuarios SET nombre = 'juan' WHERE nombre LIKE '%a%' OR id <> 2; SELECT id FROM usuarios; SELECT id FROM usuarios WHERE id >= 50 OR id = 10 LIMIT 3; UPDATE usuarios SET nombre = 'juan';|192.168.1.60

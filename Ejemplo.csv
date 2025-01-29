@@ -1,0 +1,7 @@
+Method|URL|Params|Body|IP
+GET|https://example.com/search|DELETE FROM usuarios WHERE id=1;| |192.168.1.30
+POST|https://example.com/register | | SELECT id FROM usuarios GROUP BY nombre ORDER BY contrasena;|192.168.1.50
+PUT|https://example.com/update_profile||SELECT id FROM usuarios WHERE nombre BETWEEN 'Ana' AND 'Sara' LIMIT 3 OFFSET 9;|192.168.1.70
+GET|https://example.com/search|INSERT INTO usuarios (contrasena,id,nombre) VALUES ('Rubén',2,'fkvs352wn');| |192.168.1.30
+POST|https://example.com/register||SELECT contrasena FROM usuarios WHERE nombre <= 'Juan' LIMIT 34; SELECT contrasena FROM usuarios WHERE nombre <= 'Juan' LIMIT 34;|192.168.1.50
+PUT|https://example.com/update_profile||SELECT id FROM usuarios GROUP BY nombre, contrasena;|192.168.1.70
